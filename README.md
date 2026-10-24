@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Abirham Taye — architecture portfolio
 
-## Getting Started
+A static Next.js site built from the portfolio PDF. Every project, figure and line of text comes from that PDF.
 
-First, run the development server:
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build && npm start   # production build
+npm run lint && npx tsc --noEmit
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Set `NEXT_PUBLIC_SITE_URL` (for example `https://abirhamtaye.com`) when deploying, so the sitemap, canonical links and social previews use the real address. The site deploys to Vercel as-is, and every page is prerendered.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Where things live
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| What | Where |
+| --- | --- |
+| Profile, bio, CV, contact | `src/content/profile.ts` |
+| One file per project | `src/content/projects/<slug>.ts` |
+| Project order on the homepage | `src/content/index.ts` |
+| Content types (blocks, images) | `src/content/types.ts` |
+| Images | `public/images/projects/<slug>/*.webp`, `public/images/about/` |
+| Image dimensions (generated) | `src/content/image-sizes.json` |
+| Colours, type, grid, motion | `src/app/globals.css` |
+| Pages | `src/app/` (home, `work/[slug]`, about, contact) |
 
-## Learn More
+## Add a project
 
-To learn more about Next.js, take a look at the following resources:
+1. Put WebP or JPG images in `public/images/projects/<new-slug>/`. Aim for about 2400 px wide.
+2. Add each image's size to `src/content/image-sizes.json` as `"<new-slug>/<file>.webp": [width, height]`. The build fails with a clear message if an image is missing from the table.
+3. Copy an existing project file, such as `src/content/projects/chaka-villas.ts`, and edit it:
+   - `section` positions the project in the Section Index on the homepage.
+     - For a building, use `{ kind: "building", above: <storeys above ground incl. ground>, below: <basements>, label: "2B+G+12" }`.
+     - For masterplans and interiors, use `{ kind: "plate", label: "48 ha", span: 1–3 }`.
+   - `blocks` is the page layout, in order. The block types are:
+     - `full`: an image at full width.
+     - `inset`: an image with a note beside it.
+     - `pair`: two images side by side.
+     - `drawing`: a drawing on a white mat.
+     - `sequence`: a numbered grid of images.
+     - `text`
+     - `figures`: key numbers.
+     - `chapter`: a sub-heading inside the project.
+   - `surface: "night"` opens the project on a dark page, which suits night renders.
+4. Import it in `src/content/index.ts` and place it in the list. Numbering, the sitemap and next-project links follow automatically.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Design notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The paper, ink and clay palette is taken from the portfolio's own taupe blocks.
+- Type is set in Instrument Serif, Inter Tight and IBM Plex Mono.
+- The signature idea is the **Section Index**. All eleven projects are drawn as one section through the ground at a single storey scale: towers rise above the ground line, basements drop below it, and the masterplans sit on it as plates. On a phone the section turns into a list.
+- Motion respects `prefers-reduced-motion`. All hover information is also available on focus and tap.

@@ -1,26 +1,540 @@
 @import "tailwindcss";
 
+/*
+  Design system.
+
+  Palette: warm paper, ink and graphite, plus one accent taken from the
+  portfolio itself, the clay-taupe of its colour blocks. A night surface is
+  used for renders that read better on black.
+
+  Grid: 12 columns (6 on small screens) inside a fluid outer margin.
+  The "ground line" is the recurring device: a hairline that every
+  composition stands on, as in a section drawing.
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --paper: #f3f0ea;
+  --paper-2: #e8e3da;
+  --mat: #ffffff;
+  --ink: #161513;
+  --graphite: #57534c;
+  --mute: #7c776e;
+  --rule: rgb(22 21 19 / 0.16);
+  --clay: #8c6f60;
+  --clay-ink: #6f5547;
+  --night: #121110;
+  --night-2: #1c1a18;
+  --night-ink: #ece7de;
+  --night-rule: rgb(236 231 222 / 0.18);
+
+  --margin: clamp(1rem, 3.2vw, 3rem);
+  --gutter: clamp(0.75rem, 1.6vw, 1.5rem);
+  --header-h: 3.5rem;
+  --space-section: clamp(6rem, 14vw, 14rem);
+  --space-block: clamp(4rem, 9vw, 9rem);
+
+  --ease-out: cubic-bezier(0.2, 0.7, 0.1, 1);
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-mat: var(--mat);
+  --color-ink: var(--ink);
+  --color-graphite: var(--graphite);
+  --color-mute: var(--mute);
+  --color-rule: var(--rule);
+  --color-clay: var(--clay);
+  --color-clay-ink: var(--clay-ink);
+  --color-night: var(--night);
+  --color-night-ink: var(--night-ink);
+
+  --font-sans: var(--font-text);
+  --font-mono: var(--font-label);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  scroll-padding-top: var(--header-h);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-text), ui-sans-serif, system-ui, sans-serif;
+  font-size: clamp(1rem, 0.96rem + 0.18vw, 1.0625rem);
+  line-height: 1.6;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--clay);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 1.5px solid var(--clay);
+  outline-offset: 3px;
+}
+
+/* ---------- Layout primitives ---------- */
+
+.frame {
+  padding-inline: var(--margin);
+}
+
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+}
+
+@media (max-width: 767px) {
+  .grid-12 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Type roles ---------- */
+
+/* Labels: the voice of a drawing's title block. */
+.t-label {
+  font-family: var(--font-label), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.45;
+  font-feature-settings: "tnum", "zero";
+}
+
+.t-caption {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--graphite);
+}
+
+.t-lead {
+  font-family: var(--font-display), ui-serif, serif;
+  font-size: clamp(1.375rem, 1.05rem + 1vw, 2rem);
+  line-height: 1.22;
+  letter-spacing: -0.005em;
+}
+
+.t-title {
+  font-family: var(--font-display), ui-serif, serif;
+  font-size: clamp(2.5rem, 1.3rem + 4.4vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.t-monument {
+  font-family: var(--font-display), ui-serif, serif;
+  font-size: clamp(4.25rem, 0.5rem + 14.5vw, 17rem);
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+}
+
+.measure {
+  max-width: 64ch;
+}
+
+.prose-body p + p {
+  margin-top: 1em;
+}
+
+/* ---------- Surfaces ---------- */
+
+.surface-night {
+  background: var(--night);
+  color: var(--night-ink);
+  --rule: var(--night-rule);
+  --graphite: #aca79d;
+  --mute: #8a857c;
+  --paper-2: var(--night-2);
+}
+
+/* ---------- Links ---------- */
+
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 500ms var(--ease-out);
+}
+.link-underline:hover,
+.link-underline:focus-visible,
+.link-underline[aria-current="page"] {
+  background-size: 100% 1px;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--margin);
+  top: -100px;
+  z-index: 100;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.5rem 0.75rem;
+}
+.skip-link:focus {
+  top: 0.5rem;
+}
+
+/* ---------- Motion ---------- */
+
+/* Page entry: a short settle, run on every route change by app/template.tsx. */
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.page-in {
+  animation: page-in 700ms var(--ease-out) both;
+}
+
+/* Hero image: opens upward like a curtain, settling from a slight scale. */
+@keyframes curtain {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes settle {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes rise {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes draw-line {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.anim-curtain {
+  animation: curtain 1300ms var(--ease-inout) both;
+}
+.anim-settle {
+  animation: settle 2200ms var(--ease-out) both;
+}
+.anim-rise {
+  animation: rise 1100ms var(--ease-out) both;
+}
+.anim-fade {
+  animation: fade 900ms var(--ease-out) both;
+}
+.anim-line {
+  transform-origin: left;
+  animation: draw-line 1400ms var(--ease-inout) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Home hero (see components/home/HomeHero.tsx) ---------- */
+
+.hero {
+  --name-size: clamp(4.5rem, 0.5rem + 14vw, 16.5rem);
+  --split: 35vw;
+}
+.hero .t-monument {
+  font-size: var(--name-size);
+}
+.hero-image {
+  inset: var(--header-h) 0 0 var(--split);
+}
+.hero-name {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(var(--margin) * 0.5);
+  padding-inline: var(--margin);
+  pointer-events: none;
+  margin: 0;
+}
+.hero-name--ink {
+  clip-path: inset(0 calc(100% - var(--split)) 0 0);
+}
+.hero-name--light {
+  color: var(--paper);
+  clip-path: inset(0 0 0 var(--split));
+}
+.hero-scrim {
+  background: linear-gradient(to bottom, transparent, rgb(0 0 0 / 0.38));
+}
+.hero-copy {
+  top: calc(var(--header-h) + 2.5rem);
+  right: calc(100% - var(--split) + var(--gutter));
+  bottom: calc(var(--margin) + var(--name-size) * 1.78 + 2.5rem);
+}
+
+@media (max-width: 767px) {
+  .hero {
+    --name-size: clamp(4rem, 21vw, 7.5rem);
+    --split: 56svh;
+    height: auto;
+    min-height: 100svh;
+    padding-bottom: 2.5rem;
+  }
+  .hero-image {
+    inset: var(--header-h) 0 auto 0;
+    height: calc(var(--split) - var(--header-h));
+  }
+  .hero-name {
+    position: relative;
+    bottom: auto;
+    margin-top: calc(var(--split) - var(--name-size) * 0.78);
+  }
+  .hero-name--light {
+    position: absolute;
+    top: 0;
+    margin-top: calc(var(--split) - var(--name-size) * 0.78);
+  }
+  .hero-name--ink {
+    clip-path: inset(calc(var(--name-size) * 0.78) 0 0 0);
+  }
+  .hero-name--light {
+    clip-path: inset(0 0 calc(100% - var(--name-size) * 0.78) 0);
+  }
+  .hero-copy {
+    position: relative;
+    inset: auto;
+    margin-top: 1.75rem;
+    gap: 1.5rem;
+  }
+}
+
+/* ---------- Section index (see components/home/SectionIndex.tsx) ---------- */
+
+.section-index {
+  --u: clamp(5px, 0.6vw, 10px);
+  --label-h: 15.5rem;
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(var(--tracks), minmax(0, 1fr));
+  column-gap: var(--gutter);
+  border-bottom: 1px solid var(--rule);
+}
+/* The ground line, ±0.00 */
+.section-index::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--margin) * -1);
+  right: calc(var(--margin) * -1);
+  top: calc(var(--max-above) * var(--u));
+  height: 1px;
+  background: var(--ink);
+  z-index: 1;
+}
+.section-col[data-kind="plate"] {
+  grid-column: span var(--span);
+}
+.section-col {
+  transition: opacity 400ms var(--ease-out);
+}
+.section-col[data-dim] {
+  opacity: 0.28;
+}
+.section-link {
+  display: grid;
+  grid-template-rows: calc(var(--max-above) * var(--u)) calc(var(--max-below) * var(--u)) var(--label-h);
+  height: 100%;
+}
+.section-above,
+.section-below {
+  display: flex;
+  justify-content: flex-start;
+}
+.section-above {
+  align-items: flex-end;
+}
+.section-below {
+  align-items: flex-start;
+}
+.section-mass {
+  display: block;
+  width: min(62%, 3.25rem);
+  transform-origin: bottom;
+  transition: background-color 400ms var(--ease-out), transform 900ms var(--ease-out);
+  transition-delay: 0ms, calc(var(--i) * 55ms);
+}
+.section-below .section-mass {
+  transform-origin: top;
+}
+.section-index[data-state="waiting"] .section-mass {
+  transform: scaleY(0);
+}
+
+/* Buildings: one line per storey above ground, hatched earth below. */
+.section-col[data-kind="building"] .section-above .section-mass {
+  height: calc(var(--above) * var(--u));
+  border: 1px solid var(--ink);
+  border-bottom: 0;
+  background: var(--paper) repeating-linear-gradient(to top, var(--ink) 0 1px, transparent 1px var(--u));
+  background-position: 0 1px;
+}
+.section-col[data-kind="building"] .section-below .section-mass {
+  height: calc(var(--below) * var(--u));
+  border: 1px solid var(--ink);
+  border-top: 0;
+  background: repeating-linear-gradient(-45deg, var(--mute) 0 1px, transparent 1px 5px);
+}
+/* Plates: masterplans and interiors lie on the ground. */
+.section-col[data-kind="plate"] .section-above .section-mass {
+  width: 100%;
+  height: calc(var(--u) * 0.9);
+  border: 1px solid var(--ink);
+  border-bottom: 0;
+  background: repeating-linear-gradient(90deg, var(--ink) 0 1px, transparent 1px calc(var(--u) * 0.9));
+}
+.section-link:hover .section-mass,
+.section-link:focus-visible .section-mass {
+  background-color: var(--clay);
+}
+
+.section-label {
+  display: flex;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  padding-block: 0 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.section-col[data-kind="plate"] .section-label {
+  justify-content: flex-end;
+}
+.section-number {
+  color: var(--clay-ink);
+}
+.section-title {
+  font-family: var(--font-display), serif;
+  font-size: clamp(1rem, 0.6rem + 0.7vw, 1.45rem);
+  line-height: 1;
+}
+.section-dim {
+  color: var(--graphite);
+}
+
+/* Turned on its side for narrow screens: a list with horizontal sections. */
+@media (max-width: 767px) {
+  .section-index {
+    --u: calc((50vw - var(--margin)) / (var(--max-above) + var(--max-below)));
+    display: block;
+    border-bottom: 0;
+  }
+  .section-index::before {
+    display: none;
+  }
+  .section-col + .section-col {
+    border-top: 1px solid var(--rule);
+  }
+  .section-link {
+    grid-template-rows: none;
+    grid-template-columns: 1fr calc(var(--max-below) * var(--u)) calc(var(--max-above) * var(--u));
+    align-items: center;
+    min-height: 3.75rem;
+  }
+  .section-label {
+    grid-column: 1;
+    grid-row: 1;
+    writing-mode: horizontal-tb;
+    transform: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0.15rem;
+    padding: 0.6rem 0.75rem 0.6rem 0;
+    white-space: normal;
+  }
+  .section-number {
+    position: absolute;
+    opacity: 0;
+  }
+  .section-below,
+  .section-above {
+    grid-row: 1;
+    height: 100%;
+    align-items: center;
+  }
+  .section-below {
+    grid-column: 2;
+    justify-content: flex-end;
+    border-right: 1px solid var(--ink);
+  }
+  .section-above {
+    grid-column: 3;
+    justify-content: flex-start;
+  }
+  .section-mass {
+    transform-origin: left;
+    height: 1.1rem !important;
+  }
+  .section-below .section-mass {
+    transform-origin: right;
+  }
+  .section-index[data-state="waiting"] .section-mass {
+    transform: scaleX(0);
+  }
+  .section-col[data-kind="building"] .section-above .section-mass {
+    width: calc(var(--above) * var(--u));
+    border: 1px solid var(--ink);
+    border-left: 0;
+    background: var(--paper) repeating-linear-gradient(to right, var(--ink) 0 1px, transparent 1px var(--u));
+    background-position: -1px 0;
+  }
+  .section-col[data-kind="building"] .section-below .section-mass {
+    width: calc(var(--below) * var(--u));
+    border: 1px solid var(--ink);
+    border-right: 0;
+  }
+  .section-col[data-kind="plate"] .section-above .section-mass {
+    width: calc(var(--span) / 3 * 100%);
+    height: 0.45rem !important;
+    border: 1px solid var(--ink);
+    border-left: 0;
+  }
 }

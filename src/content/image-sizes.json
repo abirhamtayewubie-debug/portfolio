@@ -1,0 +1,914 @@
+{
+ "eeig-headquarters/hero.webp": [
+  2384,
+  1679
+ ],
+ "eeig-headquarters/urban-context.webp": [
+  1403,
+  945
+ ],
+ "eeig-headquarters/plan-basement-and-6-11.webp": [
+  674,
+  1239
+ ],
+ "eeig-headquarters/plans-ground-to-30.webp": [
+  1452,
+  1276
+ ],
+ "eeig-headquarters/tower-lobby.webp": [
+  1414,
+  909
+ ],
+ "eeig-headquarters/podium-lobby.webp": [
+  1447,
+  909
+ ],
+ "eeig-headquarters/aerial-night.webp": [
+  1108,
+  909
+ ],
+ "eeu-headquarters/hero.webp": [
+  1502,
+  1079
+ ],
+ "eeu-headquarters/concept-01.webp": [
+  518,
+  352
+ ],
+ "eeu-headquarters/concept-02.webp": [
+  519,
+  352
+ ],
+ "eeu-headquarters/concept-03.webp": [
+  519,
+  352
+ ],
+ "eeu-headquarters/concept-04.webp": [
+  517,
+  352
+ ],
+ "eeu-headquarters/sections.webp": [
+  2185,
+  367
+ ],
+ "eeu-headquarters/plan-ground.webp": [
+  1781,
+  1672
+ ],
+ "eeu-headquarters/plans-upper.webp": [
+  1359,
+  1311
+ ],
+ "eeu-headquarters/tower-entrance.webp": [
+  1415,
+  794
+ ],
+ "eeu-headquarters/podium-lobby.webp": [
+  1338,
+  910
+ ],
+ "eeu-headquarters/street-view.webp": [
+  1081,
+  1595
+ ],
+ "eeu-district-office/hero.webp": [
+  1280,
+  903
+ ],
+ "eeu-district-office/plan-ground.webp": [
+  981,
+  922
+ ],
+ "eeu-district-office/plan-4th.webp": [
+  974,
+  931
+ ],
+ "eeu-district-office/plan-9th-10th.webp": [
+  974,
+  355
+ ],
+ "eeu-district-office/perspective.webp": [
+  765,
+  478
+ ],
+ "eeu-district-office/entrance-lobby.webp": [
+  762,
+  478
+ ],
+ "eeu-district-office/aerial.webp": [
+  1423,
+  820
+ ],
+ "ecpmi-dormitory/hero.webp": [
+  1115,
+  912
+ ],
+ "ecpmi-dormitory/courtyard.webp": [
+  900,
+  597
+ ],
+ "ecpmi-dormitory/roof-garden.webp": [
+  901,
+  610
+ ],
+ "ecpmi-dormitory/section.webp": [
+  1414,
+  1225
+ ],
+ "ecpmi-dormitory/plan-ground.webp": [
+  1276,
+  743
+ ],
+ "ecpmi-dormitory/plan-typical.webp": [
+  1276,
+  384
+ ],
+ "terrace-apartment/hero.webp": [
+  2400,
+  1697
+ ],
+ "terrace-apartment/plan-site.webp": [
+  1164,
+  1037
+ ],
+ "terrace-apartment/plan-basement.webp": [
+  658,
+  1018
+ ],
+ "terrace-apartment/plan-ground.webp": [
+  1172,
+  1011
+ ],
+ "terrace-apartment/plan-first.webp": [
+  648,
+  1028
+ ],
+ "terrace-apartment/plan-2nd-5th.webp": [
+  714,
+  1024
+ ],
+ "terrace-apartment/plan-6th.webp": [
+  748,
+  1033
+ ],
+ "terrace-apartment/living-01.webp": [
+  1276,
+  719
+ ],
+ "terrace-apartment/living-02.webp": [
+  1136,
+  719
+ ],
+ "terrace-apartment/living-03.webp": [
+  1144,
+  719
+ ],
+ "terrace-apartment/living-04.webp": [
+  1013,
+  719
+ ],
+ "terrace-apartment/master-bedroom.webp": [
+  1144,
+  514
+ ],
+ "terrace-apartment/aerial.webp": [
+  1045,
+  1082
+ ],
+ "terrace-apartment/front.webp": [
+  1141,
+  1082
+ ],
+ "terrace-apartment/roof-terrace.webp": [
+  837,
+  455
+ ],
+ "terrace-apartment/kitchen.webp": [
+  1369,
+  770
+ ],
+ "imamu-ahmed-masjid/hero.webp": [
+  2400,
+  1697
+ ],
+ "imamu-ahmed-masjid/existing-01.webp": [
+  366,
+  366
+ ],
+ "imamu-ahmed-masjid/existing-02.webp": [
+  367,
+  366
+ ],
+ "imamu-ahmed-masjid/existing-03.webp": [
+  367,
+  366
+ ],
+ "imamu-ahmed-masjid/mass-evolution-01.webp": [
+  546,
+  319
+ ],
+ "imamu-ahmed-masjid/mass-evolution-02.webp": [
+  546,
+  319
+ ],
+ "imamu-ahmed-masjid/mass-evolution-03.webp": [
+  547,
+  319
+ ],
+ "imamu-ahmed-masjid/mass-evolution-04.webp": [
+  546,
+  319
+ ],
+ "imamu-ahmed-masjid/building-massing-01.webp": [
+  437,
+  259
+ ],
+ "imamu-ahmed-masjid/building-massing-02.webp": [
+  437,
+  259
+ ],
+ "imamu-ahmed-masjid/building-massing-03.webp": [
+  437,
+  259
+ ],
+ "imamu-ahmed-masjid/building-massing-04.webp": [
+  437,
+  259
+ ],
+ "imamu-ahmed-masjid/building-massing-05.webp": [
+  437,
+  259
+ ],
+ "imamu-ahmed-masjid/massing-axo.webp": [
+  752,
+  519
+ ],
+ "imamu-ahmed-masjid/madrasah-terraces.webp": [
+  834,
+  518
+ ],
+ "imamu-ahmed-masjid/plan-site.webp": [
+  759,
+  568
+ ],
+ "imamu-ahmed-masjid/plan-basement.webp": [
+  798,
+  568
+ ],
+ "imamu-ahmed-masjid/plan-semi-basement.webp": [
+  821,
+  534
+ ],
+ "imamu-ahmed-masjid/plan-ground.webp": [
+  821,
+  575
+ ],
+ "imamu-ahmed-masjid/plan-first.webp": [
+  759,
+  565
+ ],
+ "imamu-ahmed-masjid/plan-second.webp": [
+  491,
+  586
+ ],
+ "imamu-ahmed-masjid/plan-third.webp": [
+  422,
+  601
+ ],
+ "imamu-ahmed-masjid/aerial.webp": [
+  950,
+  534
+ ],
+ "imamu-ahmed-masjid/minaret-street.webp": [
+  821,
+  535
+ ],
+ "imamu-ahmed-masjid/main-view.webp": [
+  1831,
+  911
+ ],
+ "imamu-ahmed-masjid/elevation-front.webp": [
+  1123,
+  584
+ ],
+ "imamu-ahmed-masjid/elevation-right.webp": [
+  1041,
+  661
+ ],
+ "imamu-ahmed-masjid/elevation-left.webp": [
+  1135,
+  615
+ ],
+ "imamu-ahmed-masjid/elevation-rear.webp": [
+  858,
+  527
+ ],
+ "imamu-ahmed-masjid/interior-01.webp": [
+  1081,
+  718
+ ],
+ "imamu-ahmed-masjid/arcade.webp": [
+  1139,
+  717
+ ],
+ "imamu-ahmed-masjid/interior-02.webp": [
+  1164,
+  718
+ ],
+ "imamu-ahmed-masjid/stair.webp": [
+  936,
+  719
+ ],
+ "imamu-ahmed-masjid/interior-dome.webp": [
+  1164,
+  514
+ ],
+ "ai-museum/hero.webp": [
+  2400,
+  1697
+ ],
+ "ai-museum/location.webp": [
+  397,
+  397
+ ],
+ "ai-museum/concept-path.webp": [
+  939,
+  795
+ ],
+ "ai-museum/path-01.webp": [
+  526,
+  333
+ ],
+ "ai-museum/path-02.webp": [
+  526,
+  342
+ ],
+ "ai-museum/path-03.webp": [
+  526,
+  341
+ ],
+ "ai-museum/zoning.webp": [
+  1483,
+  662
+ ],
+ "ai-museum/plan-01.webp": [
+  534,
+  344
+ ],
+ "ai-museum/plan-02.webp": [
+  667,
+  371
+ ],
+ "ai-museum/plan-03.webp": [
+  479,
+  445
+ ],
+ "ai-museum/portal-01.webp": [
+  579,
+  419
+ ],
+ "ai-museum/portal-02.webp": [
+  616,
+  419
+ ],
+ "ai-museum/zone1-01.webp": [
+  579,
+  416
+ ],
+ "ai-museum/zone1-02.webp": [
+  616,
+  415
+ ],
+ "ai-museum/zone1-03.webp": [
+  662,
+  416
+ ],
+ "ai-museum/zone-plan-00.webp": [
+  436,
+  435
+ ],
+ "ai-museum/zone-plan-01.webp": [
+  436,
+  436
+ ],
+ "ai-museum/zone-plan-02.webp": [
+  435,
+  435
+ ],
+ "ai-museum/zone-plan-03.webp": [
+  436,
+  436
+ ],
+ "ai-museum/zone-plan-04.webp": [
+  436,
+  436
+ ],
+ "ai-museum/zone-plan-05.webp": [
+  435,
+  434
+ ],
+ "ai-museum/zone2-01.webp": [
+  486,
+  366
+ ],
+ "ai-museum/zone2-02.webp": [
+  518,
+  366
+ ],
+ "ai-museum/zone3-01.webp": [
+  809,
+  454
+ ],
+ "ai-museum/zone3-02.webp": [
+  640,
+  455
+ ],
+ "ai-museum/zone3-03.webp": [
+  644,
+  455
+ ],
+ "ai-museum/zone4-01.webp": [
+  824,
+  576
+ ],
+ "ai-museum/zone4-02.webp": [
+  862,
+  575
+ ],
+ "chaka-villas/hero.webp": [
+  2107,
+  1335
+ ],
+ "chaka-villas/masterplan.webp": [
+  2400,
+  1373
+ ],
+ "chaka-villas/access-plan.webp": [
+  2003,
+  1467
+ ],
+ "chaka-villas/t1-plan-basement.webp": [
+  1228,
+  677
+ ],
+ "chaka-villas/t1-plan-ground.webp": [
+  1311,
+  680
+ ],
+ "chaka-villas/t1-plan-first.webp": [
+  1231,
+  665
+ ],
+ "chaka-villas/t1-plan-second.webp": [
+  804,
+  303
+ ],
+ "chaka-villas/t1-street.webp": [
+  1244,
+  863
+ ],
+ "chaka-villas/t1-above.webp": [
+  1222,
+  864
+ ],
+ "chaka-villas/t2-hillside.webp": [
+  1443,
+  887
+ ],
+ "chaka-villas/t2-above.webp": [
+  1178,
+  886
+ ],
+ "chaka-villas/t2-plan-ground.webp": [
+  878,
+  466
+ ],
+ "chaka-villas/t2-plan-first.webp": [
+  869,
+  455
+ ],
+ "chaka-villas/t2-plan-second.webp": [
+  892,
+  306
+ ],
+ "chaka-villas/t2-plan-third.webp": [
+  883,
+  454
+ ],
+ "chaka-villas/living-01.webp": [
+  1109,
+  784
+ ],
+ "chaka-villas/dining.webp": [
+  1056,
+  785
+ ],
+ "chaka-villas/kitchen.webp": [
+  1056,
+  784
+ ],
+ "chaka-villas/family-room.webp": [
+  1110,
+  784
+ ],
+ "chaka-villas/master-bedroom.webp": [
+  1047,
+  785
+ ],
+ "chaka-villas/bedroom-01.webp": [
+  1056,
+  786
+ ],
+ "chaka-villas/bedroom-02.webp": [
+  1113,
+  787
+ ],
+ "reality-apartment/hero.webp": [
+  2239,
+  1583
+ ],
+ "reality-apartment/plan-site.webp": [
+  1135,
+  824
+ ],
+ "reality-apartment/plan-basement-3.webp": [
+  690,
+  824
+ ],
+ "reality-apartment/plan-basement-2.webp": [
+  688,
+  819
+ ],
+ "reality-apartment/plan-basement-1.webp": [
+  712,
+  824
+ ],
+ "reality-apartment/plan-ground.webp": [
+  831,
+  854
+ ],
+ "reality-apartment/plan-typical.webp": [
+  771,
+  886
+ ],
+ "reality-apartment/plan-roof.webp": [
+  792,
+  892
+ ],
+ "reality-apartment/living.webp": [
+  1163,
+  603
+ ],
+ "reality-apartment/bedroom.webp": [
+  1163,
+  606
+ ],
+ "buruj-masterplan/hero.webp": [
+  2400,
+  1697
+ ],
+ "buruj-masterplan/site.webp": [
+  1053,
+  705
+ ],
+ "buruj-masterplan/site-aerial.webp": [
+  946,
+  708
+ ],
+ "buruj-masterplan/phasing.webp": [
+  567,
+  417
+ ],
+ "buruj-masterplan/phasing-02.webp": [
+  687,
+  416
+ ],
+ "buruj-masterplan/access-vehicular.webp": [
+  715,
+  511
+ ],
+ "buruj-masterplan/access-vehicular-surface.webp": [
+  688,
+  523
+ ],
+ "buruj-masterplan/access-pedestrian.webp": [
+  700,
+  523
+ ],
+ "buruj-masterplan/access-podium-access.webp": [
+  685,
+  516
+ ],
+ "buruj-masterplan/access-pedestrian-axo.webp": [
+  1125,
+  514
+ ],
+ "buruj-masterplan/strategy-service.webp": [
+  691,
+  514
+ ],
+ "buruj-masterplan/strategy-loading.webp": [
+  687,
+  514
+ ],
+ "buruj-masterplan/strategy-fire.webp": [
+  685,
+  297
+ ],
+ "buruj-masterplan/strategy-coverage.webp": [
+  695,
+  359
+ ],
+ "buruj-masterplan/strategy-levels.webp": [
+  687,
+  499
+ ],
+ "buruj-masterplan/strategy-landscape.webp": [
+  700,
+  513
+ ],
+ "buruj-masterplan/strategy-programme.webp": [
+  667,
+  372
+ ],
+ "buruj-masterplan/strategy-limits.webp": [
+  678,
+  379
+ ],
+ "buruj-masterplan/strategy-commercial.webp": [
+  719,
+  512
+ ],
+ "buruj-masterplan/podium-render.webp": [
+  1365,
+  1036
+ ],
+ "buruj-masterplan/podium-vehicular.webp": [
+  660,
+  265
+ ],
+ "buruj-masterplan/podium-parking.webp": [
+  653,
+  282
+ ],
+ "buruj-masterplan/podium-pedestrian.webp": [
+  646,
+  462
+ ],
+ "buruj-masterplan/podium-service.webp": [
+  653,
+  279
+ ],
+ "buruj-masterplan/podium-fire.webp": [
+  672,
+  462
+ ],
+ "buruj-masterplan/podium-facade.webp": [
+  672,
+  484
+ ],
+ "buruj-masterplan/podium-parking-plan.webp": [
+  1365,
+  402
+ ],
+ "buruj-masterplan/zumurud-axo.webp": [
+  1731,
+  1152
+ ],
+ "buruj-masterplan/zumurud-levels.webp": [
+  509,
+  548
+ ],
+ "buruj-masterplan/zumurud-boundary.webp": [
+  454,
+  209
+ ],
+ "buruj-masterplan/zumurud-grid.webp": [
+  454,
+  203
+ ],
+ "buruj-masterplan/zumurud-tower.webp": [
+  974,
+  1249
+ ],
+ "buruj-masterplan/plan-ground.webp": [
+  1014,
+  565
+ ],
+ "buruj-masterplan/plan-podium-roof.webp": [
+  982,
+  575
+ ],
+ "buruj-masterplan/plan-typical-2-16.webp": [
+  991,
+  562
+ ],
+ "buruj-masterplan/plan-typical-17-19.webp": [
+  999,
+  525
+ ],
+ "buruj-masterplan/towers.webp": [
+  1389,
+  1236
+ ],
+ "buruj-masterplan/aerial.webp": [
+  1269,
+  1566
+ ],
+ "oggc/hero.webp": [
+  2400,
+  1695
+ ],
+ "oggc/site-city.webp": [
+  2400,
+  2230
+ ],
+ "oggc/site-context.webp": [
+  2400,
+  1849
+ ],
+ "oggc/map-land-use.webp": [
+  1502,
+  698
+ ],
+ "oggc/map-residential.webp": [
+  1522,
+  689
+ ],
+ "oggc/map-centres.webp": [
+  1450,
+  726
+ ],
+ "oggc/map-community.webp": [
+  1604,
+  692
+ ],
+ "oggc/map-roads.webp": [
+  1490,
+  725
+ ],
+ "oggc/map-open-space.webp": [
+  1521,
+  733
+ ],
+ "oggc/map-utilities.webp": [
+  1516,
+  703
+ ],
+ "oggc/map-towns.webp": [
+  1206,
+  755
+ ],
+ "oggc/skyline.webp": [
+  2400,
+  849
+ ],
+ "oggc/phase1-a.webp": [
+  2196,
+  1276
+ ],
+ "oggc/phase1-b.webp": [
+  1856,
+  1274
+ ],
+ "oggc/typology-01.webp": [
+  469,
+  492
+ ],
+ "oggc/typology-02.webp": [
+  469,
+  490
+ ],
+ "oggc/typology-03.webp": [
+  469,
+  492
+ ],
+ "oggc/typology-04.webp": [
+  469,
+  492
+ ],
+ "oggc/typology-05.webp": [
+  469,
+  492
+ ],
+ "oggc/typology-06.webp": [
+  366,
+  385
+ ],
+ "oggc/typology-07.webp": [
+  366,
+  387
+ ],
+ "oggc/typology-08.webp": [
+  367,
+  508
+ ],
+ "oggc/typology-09.webp": [
+  366,
+  387
+ ],
+ "oggc/typology-10.webp": [
+  366,
+  387
+ ],
+ "oggc/typology-tw1.webp": [
+  729,
+  491
+ ],
+ "oggc/typology-tw2.webp": [
+  729,
+  506
+ ],
+ "oggc/t7-plan.webp": [
+  979,
+  719
+ ],
+ "oggc/t7-render.webp": [
+  1238,
+  872
+ ],
+ "oggc/t8-plan.webp": [
+  950,
+  535
+ ],
+ "oggc/t8-render.webp": [
+  514,
+  505
+ ],
+ "oggc/interior-01.webp": [
+  547,
+  618
+ ],
+ "oggc/interior-02.webp": [
+  509,
+  618
+ ],
+ "oggc/interior-03.webp": [
+  525,
+  618
+ ],
+ "oggc/interior-04.webp": [
+  510,
+  618
+ ],
+ "oggc/interior-05.webp": [
+  999,
+  616
+ ],
+ "oggc/interior-06.webp": [
+  510,
+  616
+ ],
+ "oggc/interior-07.webp": [
+  525,
+  616
+ ],
+ "oggc/t9-plan.webp": [
+  1125,
+  474
+ ],
+ "oggc/t9-render.webp": [
+  1170,
+  909
+ ],
+ "oggc/t10-plan.webp": [
+  1003,
+  564
+ ],
+ "oggc/t10-render.webp": [
+  559,
+  884
+ ],
+ "oggc/aerial.webp": [
+  2400,
+  1697
+ ],
+ "oggc/street-01.webp": [
+  1143,
+  727
+ ],
+ "oggc/street-02.webp": [
+  1102,
+  727
+ ],
+ "oggc/street-03.webp": [
+  746,
+  455
+ ],
+ "oggc/street-04.webp": [
+  714,
+  455
+ ],
+ "oggc/street-05.webp": [
+  700,
+  455
+ ],
+ "oggc/street-06.webp": [
+  556,
+  455
+ ],
+ "about/portrait.webp": [
+  394,
+  656
+ ]
+}
