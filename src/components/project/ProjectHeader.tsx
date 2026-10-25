@@ -22,7 +22,9 @@ export function ProjectHeader({ project: p, total }: { project: Project; total: 
               <span className="anim-rise block [animation-delay:120ms]">{p.title}</span>
             </span>
           </h1>
-          {p.location && <p className="t-label anim-fade mt-6 text-[var(--graphite)] [animation-delay:300ms]">{p.location}</p>}
+          {p.location && (
+            <p className="t-label anim-fade mt-6 text-[var(--graphite)] [animation-delay:300ms]">{p.location}</p>
+          )}
         </div>
 
         {p.facts && (
@@ -56,31 +58,32 @@ export function ProjectHeader({ project: p, total }: { project: Project; total: 
 }
 
 /**
- * Variant for projects whose opening image carries the page: the hero fills
- * the screen below the bar, with the title set on it, and the title block of
- * facts follows underneath.
+ * Variant for projects whose opening image carries the page: the whole hero,
+ * uncropped, edge to edge below the bar, with the title set on it (below it on
+ * phones), and the title block of facts in a row underneath.
  */
 function FullScreenHeader({ project: p, total }: { project: Project; total: number }) {
   return (
     <header>
-      <div className="relative h-[100svh] min-h-[560px] overflow-hidden">
-        <div className="anim-curtain absolute inset-0 [animation-delay:150ms]">
-          <Image
-            src={p.hero.src}
-            alt={p.hero.alt}
-            fill
-            priority
-            sizes="100vw"
-            quality={90}
-            className="anim-settle object-cover"
-            style={{ objectPosition: p.hero.focus }}
+      <div className="relative mt-[var(--header-h)]">
+        <div className="relative overflow-hidden" style={{ aspectRatio: `${p.hero.width} / ${p.hero.height}` }}>
+          <div className="anim-curtain absolute inset-0 [animation-delay:150ms]">
+            <Image
+              src={p.hero.src}
+              alt={p.hero.alt}
+              fill
+              priority
+              sizes="100vw"
+              quality={90}
+              className="anim-settle object-contain"
+            />
+          </div>
+          <span
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-[rgb(18_17_16/0.72)] via-[rgb(18_17_16/0.28)] to-transparent max-md:hidden"
+            aria-hidden
           />
         </div>
-        <span
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-[rgb(18_17_16/0.72)] via-[rgb(18_17_16/0.28)] to-transparent"
-          aria-hidden
-        />
-        <div className="frame absolute inset-x-0 bottom-0 pb-[clamp(2rem,6vh,4.5rem)] text-[var(--paper)]">
+        <div className="frame bottom-0 pb-[clamp(2rem,6vh,4.5rem)] max-md:pt-8 md:absolute md:inset-x-0 md:text-[var(--paper)]">
           <p className="t-label anim-fade [animation-delay:500ms]">
             <span>{p.number}</span>
             <span className="opacity-70"> / {String(total).padStart(2, "0")}</span>
