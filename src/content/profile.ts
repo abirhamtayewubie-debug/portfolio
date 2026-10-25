@@ -1,8 +1,10 @@
 import type { Profile } from "./types";
 
 /**
- * Personal information, taken from the portfolio PDF (pages 2–3 and the
- * certificates at the end). Nothing here is inferred beyond that source.
+ * Personal information, taken from the CV (October 2026) and the portfolio
+ * PDF (pages 2–3 and the certificates at the end). Nothing here is inferred
+ * beyond those sources; award years and certificate details come from the
+ * portfolio, which gives them where the CV does not.
  */
 export const profile: Profile = {
   name: "Abirham Taye",
@@ -10,9 +12,9 @@ export const profile: Profile = {
   location: "Addis Ababa, Ethiopia",
   statement: "Buildings, interiors and cities, from 780 m² to 548 hectares.",
   bio: [
-    "I am an architect and urban designer based in Addis Ababa, with more than six years of experience planning, designing and delivering work across building and urban design.",
+    "I am an architect and urban designer based in Addis Ababa, with more than eight years of experience delivering high-rise, mixed-use and housing projects from concept to completion.",
     "The work moves between scales: an exhibition interior of 780 m², student housing and apartment buildings, competition headquarters towers of thirty storeys, and masterplans for new city districts in Ethiopia and Iraq.",
-    "Alongside design I lead teams and manage projects from concept to completion, coordinating multidisciplinary consultants and stakeholders so that the design intent holds through technical requirements, programme and budget.",
+    "Alongside design I lead multidisciplinary teams and coordinate the work across disciplines, from BIM-driven documentation to detailed design, so that the design intent holds through to a buildable, high-quality result.",
   ],
   portrait: {
     src: "/images/about/portrait.webp",
@@ -25,7 +27,17 @@ export const profile: Profile = {
   phone: "+251 98 582 2275",
   experience: [
     {
-      period: "2023 – 2025",
+      period: "2026 – present",
+      title: "Senior Architect, Design Coordinator, BIM Specialist",
+      place: "AZAD Design Build PLC",
+      location: "Addis Ababa, Ethiopia",
+      points: [
+        "Leading architectural design and documentation, coordinating design disciplines across projects.",
+        "Developing and managing BIM models and coordination workflows.",
+      ],
+    },
+    {
+      period: "2023 – 2026",
       title: "Senior Architect, Architectural Team Leader",
       place: "Ovid Kling Consult PLC",
       location: "Addis Ababa, Ethiopia",
@@ -40,7 +52,7 @@ export const profile: Profile = {
     },
     {
       period: "Jan 2019 – Feb 2023",
-      title: "Architect, Landscape Designer",
+      title: "Architect",
       place: "Ethiopian Construction Design & Supervision Works Corporation (ECDSWC)",
       location: "Addis Ababa, Ethiopia",
       points: [
