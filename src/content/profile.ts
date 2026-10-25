@@ -4,7 +4,8 @@ import type { Profile } from "./types";
  * Personal information, taken from the CV (October 2026) and the portfolio
  * PDF (pages 2–3 and the certificates at the end). Nothing here is inferred
  * beyond those sources; award years and certificate details come from the
- * portfolio, which gives them where the CV does not.
+ * portfolio, which gives them where the CV does not. The 2025 portfolio adds
+ * the MAE Consult internship and the fuller duty lists.
  */
 export const profile: Profile = {
   name: "Abirham Taye",
@@ -41,14 +42,24 @@ export const profile: Profile = {
       title: "Senior Architect, Architectural Team Leader",
       place: "Ovid Kling Consult PLC",
       location: "Addis Ababa, Ethiopia",
-      points: ["Large-scale planning and design projects.", "Leading a team on multiple housing projects."],
+      points: [
+        "Managing design projects from concept development to completion.",
+        "Large-scale planning and design projects.",
+        "Leading a team on multiple housing projects.",
+        "Supervising and mentoring junior design team members.",
+        "Reviewing drawings for accuracy and code compliance.",
+      ],
     },
     {
       period: "2024",
       title: "Project Architect",
       place: "Kling Consult",
       location: "Dubai, UAE",
-      points: ["High-rise design projects.", "Preparing design documents with a BIM methodology."],
+      points: [
+        "High-rise design projects.",
+        "Preparing design documents with a BIM methodology.",
+        "Spatial schematic design, 2D and 3D visuals, design documentation and working drawings.",
+      ],
     },
     {
       period: "Jan 2019 – Feb 2023",
@@ -59,6 +70,19 @@ export const profile: Profile = {
         "Four masterplan design projects.",
         "Design and coordination of housing and office projects.",
         "Led the team on a high-rise mixed-use project.",
+        "Designed public spaces, parks and urban landscapes, with site plans and planting schemes.",
+        "Collaborated with architects and civil engineers.",
+      ],
+    },
+    {
+      period: "2017 – 2018",
+      title: "Intern Architect",
+      place: "MAE Consult",
+      location: "Addis Ababa, Ethiopia",
+      points: [
+        "Building design and 3D visualisation.",
+        "Assisting with design development, drafting and construction drawings.",
+        "Site visits, surveys, and research into materials, codes and precedents.",
       ],
     },
   ],
