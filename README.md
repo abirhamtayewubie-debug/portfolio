@@ -31,7 +31,7 @@ Set `NEXT_PUBLIC_SITE_URL` (for example `https://abirhamtaye.com`) when deployin
 1. Put WebP or JPG images in `public/images/projects/<new-slug>/`. Aim for about 2400 px wide.
 2. Add each image's size to `src/content/image-sizes.json` as `"<new-slug>/<file>.webp": [width, height]`. The build fails with a clear message if an image is missing from the table.
 3. Copy an existing project file, such as `src/content/projects/chaka-villas.ts`, and edit it:
-   - `section` positions the project in the Section Index on the homepage.
+   - `section` gives the height label in the homepage index and the small section drawing beside it.
      - For a building, use `{ kind: "building", above: <storeys above ground incl. ground>, below: <basements>, label: "2B+G+12" }`.
      - For masterplans and interiors, use `{ kind: "plate", label: "48 ha", span: 1–3 }`.
    - `blocks` is the page layout, in order. The block types are:
@@ -50,5 +50,5 @@ Set `NEXT_PUBLIC_SITE_URL` (for example `https://abirhamtaye.com`) when deployin
 
 - The paper, ink and clay palette is taken from the portfolio's own taupe blocks.
 - Type is set in Instrument Serif, Inter Tight and IBM Plex Mono.
-- The signature idea is the **Section Index**. All eleven projects are drawn as one section through the ground at a single storey scale: towers rise above the ground line, basements drop below it, and the masterplans sit on it as plates. On a phone the section turns into a list.
+- The homepage **Index of work** is an editorial table of contents. Pointing at a project wipes its opening image into the plate beside the list, with a small section of the building drawn at one storey scale (towers above the ground line, basements hatched below, masterplans as plates). On a phone each row carries a thumbnail.
 - Motion respects `prefers-reduced-motion`. All hover information is also available on focus and tap.

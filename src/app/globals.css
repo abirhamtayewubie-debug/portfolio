@@ -345,196 +345,127 @@ body {
   }
 }
 
-/* ---------- Section index (see components/home/SectionIndex.tsx) ---------- */
+/* ---------- Work index (see components/home/WorkIndex.tsx) ---------- */
 
-.section-index {
-  --u: clamp(5px, 0.6vw, 10px);
-  --label-h: 15.5rem;
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(var(--tracks), minmax(0, 1fr));
-  column-gap: var(--gutter);
+.work-row {
   border-bottom: 1px solid var(--rule);
 }
-/* The ground line, ±0.00 */
-.section-index::before {
+.work-row-link {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr) auto;
+  grid-template-areas: "num title dim" "num meta meta";
+  column-gap: 1rem;
+  align-items: baseline;
+  padding: 1.1rem 0 1.2rem;
+  position: relative;
+}
+.work-row-link::after {
   content: "";
   position: absolute;
-  left: calc(var(--margin) * -1);
-  right: calc(var(--margin) * -1);
-  top: calc(var(--max-above) * var(--u));
+  left: 0;
+  right: 0;
+  bottom: -1px;
   height: 1px;
   background: var(--ink);
-  z-index: 1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 700ms var(--ease-out);
 }
-.section-col[data-kind="plate"] {
-  grid-column: span var(--span);
-}
-.section-col {
-  transition: opacity 400ms var(--ease-out);
-}
-.section-col[data-dim] {
-  opacity: 0.28;
-}
-.section-link {
-  display: grid;
-  grid-template-rows: calc(var(--max-above) * var(--u)) calc(var(--max-below) * var(--u)) var(--label-h);
-  height: 100%;
-}
-.section-above,
-.section-below {
-  display: flex;
-  justify-content: flex-start;
-}
-.section-above {
-  align-items: flex-end;
-}
-.section-below {
-  align-items: flex-start;
-}
-.section-mass {
-  display: block;
-  width: min(62%, 3.25rem);
-  transform-origin: bottom;
-  transition: background-color 400ms var(--ease-out), transform 900ms var(--ease-out);
-  transition-delay: 0ms, calc(var(--i) * 55ms);
-}
-.section-below .section-mass {
-  transform-origin: top;
-}
-.section-index[data-state="waiting"] .section-mass {
-  transform: scaleY(0);
-}
-
-/* Buildings: one line per storey above ground, hatched earth below. */
-.section-col[data-kind="building"] .section-above .section-mass {
-  height: calc(var(--above) * var(--u));
-  border: 1px solid var(--ink);
-  border-bottom: 0;
-  background: var(--paper) repeating-linear-gradient(to top, var(--ink) 0 1px, transparent 1px var(--u));
-  background-position: 0 1px;
-}
-.section-col[data-kind="building"] .section-below .section-mass {
-  height: calc(var(--below) * var(--u));
-  border: 1px solid var(--ink);
-  border-top: 0;
-  background: repeating-linear-gradient(-45deg, var(--mute) 0 1px, transparent 1px 5px);
-}
-/* Plates: masterplans and interiors lie on the ground. */
-.section-col[data-kind="plate"] .section-above .section-mass {
-  width: 100%;
-  height: calc(var(--u) * 0.9);
-  border: 1px solid var(--ink);
-  border-bottom: 0;
-  background: repeating-linear-gradient(90deg, var(--ink) 0 1px, transparent 1px calc(var(--u) * 0.9));
-}
-.section-link:hover .section-mass,
-.section-link:focus-visible .section-mass {
-  background-color: var(--clay);
-}
-
-.section-label {
-  display: flex;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  align-items: flex-start;
-  justify-content: flex-end;
-  gap: 0.6rem;
-  padding-block: 0 1rem;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.section-col[data-kind="plate"] .section-label {
-  justify-content: flex-end;
-}
-.section-number {
+.work-number {
+  grid-area: num;
   color: var(--clay-ink);
 }
-.section-title {
-  font-family: var(--font-display), serif;
-  font-size: clamp(1rem, 0.6rem + 0.7vw, 1.45rem);
+.work-title {
+  grid-area: title;
+  font-family: var(--font-display), ui-serif, serif;
+  font-size: clamp(1.75rem, 0.9rem + 2.4vw, 3.25rem);
   line-height: 1;
+  letter-spacing: -0.015em;
+  transition: transform 600ms var(--ease-out), color 400ms;
 }
-.section-dim {
+.work-meta {
+  grid-area: meta;
+  margin-top: 0.55rem;
   color: var(--graphite);
 }
+.work-dim {
+  grid-area: dim;
+  color: var(--graphite);
+  text-align: right;
+}
+.work-thumb {
+  display: none;
+}
+.work-index > li {
+  transition: opacity 400ms;
+}
+.work-index[data-pointing] > li:not([data-active]) {
+  opacity: 0.32;
+}
+.work-index[data-pointing] > li[data-active] .work-row-link::after {
+  transform: scaleX(1);
+}
+.work-index[data-pointing] > li[data-active] .work-title {
+  transform: translateX(0.6rem);
+}
 
-/* Turned on its side for narrow screens: a list with horizontal sections. */
+.work-plate {
+  aspect-ratio: 4 / 5;
+}
+.work-plate-image {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(100% 0 0 0);
+}
+.work-plate-image[data-state="prev"] {
+  clip-path: inset(0);
+  z-index: 1;
+}
+.work-plate-image[data-state="active"] {
+  clip-path: inset(0);
+  z-index: 2;
+  transition: clip-path 900ms var(--ease-out);
+}
+.work-plate-image[data-state="active"] img {
+  animation: plate-settle 1400ms var(--ease-out) both;
+}
+@keyframes plate-settle {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+.glyph-draw {
+  animation: fade 600ms var(--ease-out) both;
+}
+
 @media (max-width: 767px) {
-  .section-index {
-    --u: calc((50vw - var(--margin)) / (var(--max-above) + var(--max-below)));
-    display: block;
-    border-bottom: 0;
+  .work-row-link {
+    grid-template-columns: 5.5rem minmax(0, 1fr) auto;
+    grid-template-areas: "thumb title title" "thumb meta dim";
+    column-gap: 0.9rem;
+    align-items: start;
+    padding: 0.9rem 0;
   }
-  .section-index::before {
+  .work-thumb {
+    display: block;
+    grid-area: thumb;
+    position: relative;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--paper-2);
+  }
+  .work-number {
     display: none;
   }
-  .section-col + .section-col {
-    border-top: 1px solid var(--rule);
+  .work-title {
+    font-size: 1.5rem;
   }
-  .section-link {
-    grid-template-rows: none;
-    grid-template-columns: 1fr calc(var(--max-below) * var(--u)) calc(var(--max-above) * var(--u));
-    align-items: center;
-    min-height: 3.75rem;
+  .work-meta {
+    margin-top: 0.4rem;
   }
-  .section-label {
-    grid-column: 1;
-    grid-row: 1;
-    writing-mode: horizontal-tb;
-    transform: none;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 0.15rem;
-    padding: 0.6rem 0.75rem 0.6rem 0;
-    white-space: normal;
+  .work-dim {
+    margin-top: 0.4rem;
   }
-  .section-number {
-    position: absolute;
-    opacity: 0;
-  }
-  .section-below,
-  .section-above {
-    grid-row: 1;
-    height: 100%;
-    align-items: center;
-  }
-  .section-below {
-    grid-column: 2;
-    justify-content: flex-end;
-    border-right: 1px solid var(--ink);
-  }
-  .section-above {
-    grid-column: 3;
-    justify-content: flex-start;
-  }
-  .section-mass {
-    transform-origin: left;
-    height: 1.1rem !important;
-  }
-  .section-below .section-mass {
-    transform-origin: right;
-  }
-  .section-index[data-state="waiting"] .section-mass {
-    transform: scaleX(0);
-  }
-  .section-col[data-kind="building"] .section-above .section-mass {
-    width: calc(var(--above) * var(--u));
-    border: 1px solid var(--ink);
-    border-left: 0;
-    background: var(--paper) repeating-linear-gradient(to right, var(--ink) 0 1px, transparent 1px var(--u));
-    background-position: -1px 0;
-  }
-  .section-col[data-kind="building"] .section-below .section-mass {
-    width: calc(var(--below) * var(--u));
-    border: 1px solid var(--ink);
-    border-right: 0;
-  }
-  .section-col[data-kind="plate"] .section-above .section-mass {
-    width: calc(var(--span) / 3 * 100%);
-    height: 0.45rem !important;
-    border: 1px solid var(--ink);
-    border-left: 0;
+  .work-index[data-pointing] > li:not([data-active]) {
+    opacity: 1;
   }
 }

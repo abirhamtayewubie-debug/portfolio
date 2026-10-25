@@ -26,6 +26,7 @@ export const profile: Profile = {
   },
   email: "abirham.taye.wubie@gmail.com",
   phone: "+251 98 582 2275",
+  links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/abirham-taye-2472101ba" }],
   experience: [
     {
       period: "2026 – present",

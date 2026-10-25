@@ -46,6 +46,16 @@ export default function ContactPage() {
           <dt className="t-label text-graphite">Based in</dt>
           <dd className="mt-2 text-[1.25rem]">{profile.location}</dd>
         </div>
+        {profile.links?.map((l) => (
+          <div key={l.href}>
+            <dt className="t-label text-graphite">{l.label}</dt>
+            <dd className="mt-2">
+              <a href={l.href} className="link-underline text-[1.25rem]" rel="me noopener noreferrer" target="_blank">
+                {l.label} profile
+              </a>
+            </dd>
+          </div>
+        ))}
         <div>
           <dt className="t-label text-graphite">Work</dt>
           <dd className="mt-2 text-[1.25rem]">
