@@ -89,7 +89,7 @@ export function WorkIndex({ projects }: { projects: Project[] }) {
                     alt=""
                     fill
                     sizes="(min-width: 768px) 40vw, 1px"
-                    quality={80}
+                    quality={90}
                     loading="eager"
                     className="object-cover"
                     style={{ objectPosition: p.hero.focus }}

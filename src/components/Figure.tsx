@@ -47,7 +47,7 @@ export function Figure({
         fill
         sizes={sizes}
         priority={priority}
-        quality={drawing ? 90 : 80}
+        quality={90}
         className={drawing ? "object-contain" : "object-cover"}
         style={image.focus && !drawing ? { objectPosition: image.focus } : undefined}
       />

@@ -59,7 +59,7 @@ function Spread({ project: p, layout }: { project: Project; layout: Layout }) {
               alt={image.alt}
               fill
               sizes={tall ? "(min-width: 768px) 42vw, 100vw" : layout === "plate-wide" ? "100vw" : "(min-width: 768px) 67vw, 100vw"}
-              quality={80}
+              quality={90}
               className="object-cover transition-transform duration-[1400ms] ease-[var(--ease-out)] group-hover:scale-[1.035]"
               style={{ objectPosition: image.focus }}
             />

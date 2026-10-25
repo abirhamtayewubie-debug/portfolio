@@ -44,7 +44,7 @@ export function ProjectHeader({ project: p, total }: { project: Project; total: 
             fill
             priority
             sizes="100vw"
-            quality={82}
+            quality={90}
             className="anim-settle object-cover"
             style={{ objectPosition: p.hero.focus }}
           />

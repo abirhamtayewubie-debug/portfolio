@@ -41,7 +41,7 @@ export function HomeHero({ profile, project }: { profile: Profile; project: Proj
             fill
             priority
             sizes="(min-width: 768px) 62vw, 100vw"
-            quality={82}
+            quality={90}
             className="anim-settle object-cover"
             style={{ objectPosition: project.hero.focus }}
           />
