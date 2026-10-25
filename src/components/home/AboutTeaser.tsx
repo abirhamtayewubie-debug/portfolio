@@ -11,18 +11,18 @@ export function AboutTeaser({ profile }: { profile: Profile }) {
           About
         </h2>
         {profile.portrait && (
-          <Reveal className="col-span-3 md:col-span-2 md:col-start-2 md:row-start-2">
+          <Reveal className="col-span-4 md:col-span-4 md:col-start-1 md:row-start-2">
             <div className="relative bg-mat" style={{ aspectRatio: profile.portrait.width / profile.portrait.height }}>
-              <Image src={profile.portrait.src} alt={profile.portrait.alt} fill sizes="(min-width: 768px) 16vw, 50vw" className="object-cover" />
+              <Image src={profile.portrait.src} alt={profile.portrait.alt} fill sizes="(min-width: 768px) 32vw, 66vw" className="object-cover" />
             </div>
           </Reveal>
         )}
-        <Reveal className="col-span-full md:col-span-6 md:col-start-5 md:row-start-2" delay={0.1}>
+        <Reveal className="col-span-full md:col-span-7 md:col-start-6 md:row-start-2 md:self-center" delay={0.1}>
           <p className="t-lead">{profile.bio[1]}</p>
           <dl className="t-label mt-10 grid grid-cols-2 gap-x-[var(--gutter)] gap-y-5 md:grid-cols-3">
             <div>
               <dt className="text-graphite">Practice</dt>
-              <dd>6+ years</dd>
+              <dd>8+ years</dd>
             </div>
             <div>
               <dt className="text-graphite">Competitions</dt>
