@@ -3,7 +3,8 @@ import type { Project } from "@/content/types";
 
 /**
  * Project opening: the title and a title block of verified facts, set like
- * the corner of a drawing sheet, then the hero plate edge to edge.
+ * the corner of a drawing sheet, then the whole hero plate edge to edge,
+ * uncropped.
  */
 export function ProjectHeader({ project: p, total }: { project: Project; total: number }) {
   if (p.heroFullScreen) return <FullScreenHeader project={p} total={total} />;
@@ -39,7 +40,7 @@ export function ProjectHeader({ project: p, total }: { project: Project; total: 
         )}
       </div>
 
-      <div className="relative h-[min(88svh,62vw)] min-h-[320px] overflow-hidden max-md:h-[70svh]">
+      <div className="relative overflow-hidden" style={{ aspectRatio: `${p.hero.width} / ${p.hero.height}` }}>
         <div className="anim-curtain absolute inset-0 [animation-delay:150ms]">
           <Image
             src={p.hero.src}

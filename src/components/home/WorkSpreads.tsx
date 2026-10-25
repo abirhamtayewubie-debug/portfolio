@@ -4,14 +4,21 @@ import type { Project } from "@/content/types";
 import { Reveal } from "@/components/Reveal";
 
 /**
- * Selected work as a run of editorial spreads. Three compositions alternate so
- * the rhythm changes with every project, the way a monograph alternates a
- * full plate, a plate with a text column and a tall plate set off-centre.
+ * Selected work as a run of editorial spreads. Every image is shown whole, at
+ * its own proportions, never cropped. Landscape images alternate sides with
+ * their text column; upright images get a narrower plate set off-centre, the
+ * way a monograph alternates its plates.
  */
-const layouts = ["plate-right", "plate-wide", "plate-tall"] as const;
-type Layout = (typeof layouts)[number];
+type Layout = "plate-right" | "plate-left" | "plate-tall";
 
 export function WorkSpreads({ projects }: { projects: Project[] }) {
+  let landscape = 0;
+  const layouts = projects.map((p): Layout => {
+    const img = p.cover ?? p.hero;
+    if (img.width / img.height < 1.3) return "plate-tall";
+    return landscape++ % 2 === 0 ? "plate-right" : "plate-left";
+  });
+
   return (
     <section id="work" className="scroll-mt-[var(--header-h)] pt-[var(--space-section)]" aria-labelledby="work-heading">
       <div className="frame grid-12">
@@ -24,7 +31,7 @@ export function WorkSpreads({ projects }: { projects: Project[] }) {
       </div>
       <div className="mt-[var(--space-block)] flex flex-col gap-[var(--space-section)]">
         {projects.map((p, i) => (
-          <Spread key={p.slug} project={p} layout={layouts[i % layouts.length]} />
+          <Spread key={p.slug} project={p} layout={layouts[i]} />
         ))}
       </div>
     </section>
@@ -34,34 +41,32 @@ export function WorkSpreads({ projects }: { projects: Project[] }) {
 function Spread({ project: p, layout }: { project: Project; layout: Layout }) {
   const image = p.cover ?? p.hero;
   const tall = layout === "plate-tall";
-  const ratio = tall ? 4 / 5 : layout === "plate-wide" ? 2.1 : 3 / 2;
 
   const plateCols =
     layout === "plate-right"
       ? "col-span-full md:col-start-5 md:col-span-8"
-      : layout === "plate-wide"
-        ? "col-span-full"
+      : layout === "plate-left"
+        ? "col-span-full md:col-start-1 md:col-span-8"
         : "col-span-full md:col-start-7 md:col-span-5";
   const textCols =
     layout === "plate-right"
       ? "col-span-full md:col-start-1 md:col-span-4 md:row-start-1 md:self-end"
-      : layout === "plate-wide"
-        ? "col-span-full md:grid md:grid-cols-12 md:gap-x-[var(--gutter)] [&>*]:col-span-full md:[&>h3]:col-span-7 md:[&>h3]:row-span-4 md:[&>p]:col-span-4 md:[&>p]:col-start-9 md:[&>span]:col-span-4 md:[&>span]:col-start-9 md:[&>span]:w-fit"
+      : layout === "plate-left"
+        ? "col-span-full md:col-start-9 md:col-span-4 md:row-start-1 md:self-end"
         : "col-span-full md:col-start-2 md:col-span-4 md:row-start-1 md:self-start md:pt-[12vh]";
 
   return (
     <article className="frame" aria-labelledby={`spread-${p.slug}`}>
       <Link href={`/work/${p.slug}`} className="group grid-12 gap-y-6">
         <Reveal className={plateCols}>
-          <div className="relative overflow-hidden bg-[var(--paper-2)]" style={{ aspectRatio: ratio }}>
+          <div className="relative overflow-hidden bg-[var(--paper-2)]" style={{ aspectRatio: `${image.width} / ${image.height}` }}>
             <Image
               src={image.src}
               alt={image.alt}
               fill
-              sizes={tall ? "(min-width: 768px) 42vw, 100vw" : layout === "plate-wide" ? "100vw" : "(min-width: 768px) 67vw, 100vw"}
+              sizes={tall ? "(min-width: 768px) 42vw, 100vw" : "(min-width: 768px) 67vw, 100vw"}
               quality={90}
               className="object-cover transition-transform duration-[1400ms] ease-[var(--ease-out)] group-hover:scale-[1.035]"
-              style={{ objectPosition: image.focus }}
             />
           </div>
         </Reveal>

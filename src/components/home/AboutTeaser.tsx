@@ -11,9 +11,9 @@ export function AboutTeaser({ profile }: { profile: Profile }) {
           About
         </h2>
         {profile.portrait && (
-          <Reveal className="col-span-4 md:col-span-4 md:col-start-1 md:row-start-2">
+          <Reveal className="col-span-3 md:col-span-3 md:col-start-2 md:row-start-2">
             <div className="relative bg-mat" style={{ aspectRatio: profile.portrait.width / profile.portrait.height }}>
-              <Image src={profile.portrait.src} alt={profile.portrait.alt} fill sizes="(min-width: 768px) 32vw, 66vw" className="object-cover" />
+              <Image src={profile.portrait.src} alt={profile.portrait.alt} fill sizes="(min-width: 768px) 24vw, 50vw" className="object-cover" />
             </div>
           </Reveal>
         )}
