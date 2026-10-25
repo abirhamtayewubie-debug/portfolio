@@ -347,8 +347,15 @@ body {
 
 /* ---------- Work index (see components/home/WorkIndex.tsx) ---------- */
 
+@media (min-width: 768px) {
+  .work-index {
+    columns: 2;
+    column-gap: var(--gutter);
+  }
+}
 .work-row {
   border-bottom: 1px solid var(--rule);
+  break-inside: avoid;
 }
 .work-row-link {
   display: grid;
@@ -378,7 +385,7 @@ body {
 .work-title {
   grid-area: title;
   font-family: var(--font-display), ui-serif, serif;
-  font-size: clamp(1.75rem, 0.9rem + 2.4vw, 3.25rem);
+  font-size: clamp(1.75rem, 0.9rem + 1.7vw, 2.75rem);
   line-height: 1;
   letter-spacing: -0.015em;
   transition: transform 600ms var(--ease-out), color 400ms;
@@ -407,34 +414,6 @@ body {
 }
 .work-index[data-pointing] > li[data-active] .work-title {
   transform: translateX(0.6rem);
-}
-
-.work-plate {
-  aspect-ratio: 4 / 5;
-}
-.work-plate-image {
-  position: absolute;
-  inset: 0;
-  clip-path: inset(100% 0 0 0);
-}
-.work-plate-image[data-state="prev"] {
-  clip-path: inset(0);
-  z-index: 1;
-}
-.work-plate-image[data-state="active"] {
-  clip-path: inset(0);
-  z-index: 2;
-  transition: clip-path 900ms var(--ease-out);
-}
-.work-plate-image[data-state="active"] img {
-  animation: plate-settle 1400ms var(--ease-out) both;
-}
-@keyframes plate-settle {
-  from { transform: scale(1.08); }
-  to { transform: scale(1); }
-}
-.glyph-draw {
-  animation: fade 600ms var(--ease-out) both;
 }
 
 @media (max-width: 767px) {

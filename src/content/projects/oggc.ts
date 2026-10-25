@@ -24,6 +24,7 @@ export const oggc: Project = {
     "Residential typologies from high-rise apartments to townhouses sit alongside commercial, educational, healthcare and recreational facilities. A layered transport system prioritises walking while connecting every district, and parks, plazas and ecological corridors run through the plan. Infrastructure for renewable energy, smart utilities and water management is planned in from the start.",
   ],
   section: { kind: "plate", label: "548 ha", span: 3 },
+  heroFullScreen: true,
   hero: img("hero", "render", "Aerial view of the new city: dense blocks of white towers beside a river and forest, with chequered farmland plots.", { focus: "50% 50%" }),
   blocks: [
     {

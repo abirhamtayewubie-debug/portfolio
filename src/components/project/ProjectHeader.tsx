@@ -6,6 +6,7 @@ import type { Project } from "@/content/types";
  * the corner of a drawing sheet, then the hero plate edge to edge.
  */
 export function ProjectHeader({ project: p, total }: { project: Project; total: number }) {
+  if (p.heroFullScreen) return <FullScreenHeader project={p} total={total} />;
   const night = p.surface === "night";
   return (
     <header className={night ? "surface-night" : undefined}>
@@ -50,6 +51,62 @@ export function ProjectHeader({ project: p, total }: { project: Project; total: 
           />
         </div>
       </div>
+    </header>
+  );
+}
+
+/**
+ * Variant for projects whose opening image carries the page: the hero fills
+ * the screen below the bar, with the title set on it, and the title block of
+ * facts follows underneath.
+ */
+function FullScreenHeader({ project: p, total }: { project: Project; total: number }) {
+  return (
+    <header>
+      <div className="relative h-[100svh] min-h-[560px] overflow-hidden">
+        <div className="anim-curtain absolute inset-0 [animation-delay:150ms]">
+          <Image
+            src={p.hero.src}
+            alt={p.hero.alt}
+            fill
+            priority
+            sizes="100vw"
+            quality={90}
+            className="anim-settle object-cover"
+            style={{ objectPosition: p.hero.focus }}
+          />
+        </div>
+        <span
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-[rgb(18_17_16/0.72)] via-[rgb(18_17_16/0.28)] to-transparent"
+          aria-hidden
+        />
+        <div className="frame absolute inset-x-0 bottom-0 pb-[clamp(2rem,6vh,4.5rem)] text-[var(--paper)]">
+          <p className="t-label anim-fade [animation-delay:500ms]">
+            <span>{p.number}</span>
+            <span className="opacity-70"> / {String(total).padStart(2, "0")}</span>
+            <span className="ml-4">{p.category}</span>
+          </p>
+          <h1 className="t-title mt-5 max-w-[16ch] text-balance">
+            <span className="block overflow-hidden pb-[0.08em]">
+              <span className="anim-rise block [animation-delay:600ms]">{p.title}</span>
+            </span>
+          </h1>
+          {p.location && <p className="t-label anim-fade mt-5 [animation-delay:800ms]">{p.location}</p>}
+        </div>
+      </div>
+
+      {p.facts && (
+        <div className="frame grid-12 pt-10">
+          <dl className="col-span-full grid border-t border-[var(--rule)] sm:grid-cols-2 md:col-span-12 md:grid-cols-5">
+            {p.facts.map((f) => (
+              <div key={f.label} className="border-b border-[var(--rule)] py-3 md:border-b-0 md:pr-6">
+                <dt className="t-label text-[var(--mute)]">{f.label}</dt>
+                <dd className="mt-1.5 text-[0.9375rem] leading-snug">{f.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      )}
     </header>
   );
 }

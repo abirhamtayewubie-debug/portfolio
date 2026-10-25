@@ -88,6 +88,8 @@ export interface Project {
   intro: string[];
   section: Section;
   hero: ImageAsset;
+  /** Show the hero at the full height of the screen on wide screens. */
+  heroFullScreen?: boolean;
   /** Image used for the homepage preview. Falls back to hero. */
   cover?: ImageAsset;
   /** Hero surface: night for renders that read better on black. */
